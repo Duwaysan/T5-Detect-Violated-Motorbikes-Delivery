@@ -70,7 +70,7 @@ The system detects traffic violations such as *No Helmet* and *Entering Red Lane
 - **YOLOv8**: Pre-trained and fine-tuned to detect motorbikes, helmets, and lane violations with bounding boxes around the objects of interest.
    
 ### 2. Optical Character Recognition (OCR):
-- **GOT-OCR2_0 Transformer**: A transformer-based OCR model capable of recognizing Arabic and English characters from license plates.
+- **GOT-OCR2_0 Transformer**: A transformer-based OCR model capable of recognizing English characters from license plates.
 
 ### 3. Image Manipulation:
 - **OpenCV** and **Pillow (PIL)**: Used for image processing, conversion between formats, and adding visual elements such as text overlays.
