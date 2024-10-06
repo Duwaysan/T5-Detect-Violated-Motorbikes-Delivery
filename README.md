@@ -1,72 +1,93 @@
 # Final Project: License Plate Detection and Traffic Violation Reporting
 ![LOGO](https://github.com/user-attachments/assets/9d031d62-00fa-4f74-b870-4d62e9d39eeb)
-## Project Overview
-This notebook implements a complete pipeline for detecting traffic violations, recognizing license plates, and sending automated email notifications for violations. The project leverages techniques in computer vision, optical character recognition (OCR), and automated email notification systems. The system aims to detect license plates from vehicles, identify violations such as "No Helmet" or "Entering Red Lane," and send a violation notification along with image evidence.
+This project implements an end-to-end system for detecting traffic violations and automatically sending email notifications with evidence. Using a combination of YOLOv8 for object detection, an OCR model for license plate recognition, and an email notification system, the project aims to streamline traffic violation reporting.
 
+Project Overview
+The system detects traffic violations such as No Helmet and Entering Red Lane, extracts the license plate number (in both Arabic and English), checks the license plate in a database for contact information, and sends an email notification to the violator. An image showing the violation is attached to the email.
 
-## Key Components
+Key Features:
+License Plate Detection and OCR:
 
-### 1. License Plate Detection and OCR
-- **YOLOv8 Model**: A pre-trained YOLOv8 model is used to detect motorbikes and their license plates from input images. The model is fine-tuned for detecting various types of violations, such as riding without a helmet and entering restricted lanes.
-- **GOT-OCR Transformer**: The detected license plates are passed through the `GOT-OCR2_0` model, a transformer-based model for Optical Character Recognition (OCR). This model extracts both Arabic and English characters from the license plates.
+YOLOv8 Model: The system uses a fine-tuned YOLOv8 model to detect motorbikes, helmets, and lanes in input images. This model is pre-trained to identify motorbikes violating traffic rules, such as driving without a helmet or entering a restricted lane.
+GOT-OCR Transformer: The license plates detected by YOLOv8 are passed to the GOT-OCR2_0 transformer model for character recognition. This model supports both Arabic and English characters commonly found on Saudi Arabian license plates.
+Data Preprocessing and Image Manipulation:
 
-### 2. Data Preprocessing and Image Manipulation
-- **Image Preprocessing**: Input images are converted from OpenCV format to PIL format for processing text overlays.
-- **Text Overlay on Images**: The `draw_text_pil` function uses the Python Imaging Library (PIL) to overlay Arabic or English text on images, drawing the license plate number onto the detected motorbike in the image.
+Image Preprocessing: Input images are processed using OpenCV and converted to PIL format for text overlaying and image manipulation.
+Text Overlay: The draw_text_pil function overlays the detected license plate number (in Arabic or English) on the original image for better visualization.
+License Plate Text Processing:
 
-### 3. License Plate Text Processing
-- **Text Filtering**: The `filter_license_plate_text` function cleanses the OCR-extracted text by removing unwanted characters and ensuring the license plate is in the correct format.
-- **Conversion to Arabic**: The `convert_to_arabic` function converts English license plate characters into Arabic using a predefined dictionary mapping, ensuring compliance with local standards.
+Text Filtering: The OCR-extracted text is cleansed using the filter_license_plate_text function to remove unwanted characters and ensure proper formatting.
+Conversion to Arabic: The system can convert English characters on license plates to Arabic for better readability and compliance with local standards using the convert_to_arabic function.
+Traffic Violation Detection:
 
-### 4. Traffic Violation Detection
-- **Violation Types**: The notebook supports multiple types of violations, including:
-  - No Helmet
-  - Entering Red Lane
-  - Combination of both (No Helmet + Entering Red Lane)
+The system supports multiple traffic violation types:
+No Helmet
+Entering Red Lane
+Combination of both (No Helmet + Entering Red Lane)
+Based on the detected violation, the system automatically generates a notification with all the necessary details.
+Email Notification System:
 
-  Based on the detected violation type, the system automatically generates an email notification.
+Automated Email Sending: The send_email function sends an email to the violator using the violator's contact information retrieved from a license plate database. The email includes:
+The violation type (in Arabic)
+The detected license plate number (in Arabic or English)
+An attached image of the violation
+Techniques and Libraries Used:
+Object Detection:
 
-### 5. Email Notification System
-- **Automated Email Notification**: The `send_email` function sends an email notification to the violator. The email includes:
-  - The violation type (in Arabic)
-  - The detected license plate number (in Arabic or English)
-  - An image of the violation as an attachment
+YOLOv8: Pre-trained and fine-tuned to detect motorbikes, helmets, and lane violations with bounding boxes around the objects of interest.
+Optical Character Recognition (OCR):
 
-  The function supports multiple types of violations and constructs the email body accordingly, including the attachment of the violation image.
+GOT-OCR2_0 Transformer: A transformer-based OCR model capable of recognizing Arabic and English characters from license plates.
+Image Manipulation:
 
-## Techniques and Libraries Used
+OpenCV and Pillow (PIL): Used for image processing, conversion between formats, and adding visual elements such as text overlays.
+Regular Expressions:
 
-### 1. Object Detection
-- **YOLOv8**: Used for detecting motorbikes, helmets, and lanes from input images. This model provides accurate bounding boxes around objects of interest.
+Text Filtering: Regular expressions are used to filter and format OCR-extracted license plate text.
+Email Automation:
 
-### 2. Optical Character Recognition (OCR)
-- **GOT-OCR2_0**: A transformer-based OCR model that recognizes both Arabic and English license plates. This model extracts text directly from images of license plates and processes it for reporting.
+SMTP: Python's smtplib is used to send email notifications automatically, including dynamically generated email content and image attachments.
+Database Lookup:
 
-### 3. Image Manipulation
-- **OpenCV and PIL**: Used for image manipulation, including converting between image formats and drawing text onto images for visualization purposes.
-
-### 4. Regular Expressions
-- **Text Filtering**: Regular expressions are used to clean the OCR-extracted text, ensuring that only valid license plate formats are recognized.
-
-### 5. Email Automation
-- **SMTP**: The notebook uses Python's `smtplib` to automate the process of sending violation notifications via email. The email includes dynamically generated content based on the type of violation and the license plate detected.
-
-## Setup and Usage
-
-### Prerequisites
-To run the notebook, you will need the following:
-
-- Python 3.x
-- Required libraries:
-  - `transformers`
-  - `opencv-python`
-  - `Pillow`
-  - `re`
-  - `smtplib`
-  - `email`
-  - YOLOv8 (pre-trained model)
-
+License Plate Database: The system checks the detected license plate in a pre-existing database to retrieve the contact information of the vehicle owner. This information is used to send the violation email.
+Setup and Usage
+Prerequisites:
+Python 3.x
+Required libraries:
+transformers
+opencv-python
+Pillow
+re
+smtplib
+email
+YOLOv8 (pre-trained model)
+A database for storing license plate contact information
 You can install the necessary packages using pip:
 
-```bash
+bash
+Copy code
 pip install transformers opencv-python Pillow smtplib email
+How to Use the Project:
+Load the YOLOv8 Model:
+
+The model is used to detect motorbikes, helmets, and lanes in input images.
+Run the OCR:
+
+The GOT-OCR2_0 transformer model extracts the characters from detected license plates (Arabic and English).
+Check the Database:
+
+The system checks the extracted license plate number in a local database to retrieve the violator's contact information.
+Send the Email:
+
+Automatically sends a violation report with the detected license plate number and an attached image of the violation.
+Example Workflow:
+Step 1: Upload images of traffic scenarios captured by cameras.
+Step 2: The system detects violations, recognizes license plates, and looks up the contact information from the database.
+Step 3: An email notification is sent to the violator, including a detailed message about the violation and an image attachment for evidence.
+Output:
+Detected Violations: Each detected violation is logged with details, including the license plate number.
+Email Notification: The violator receives an email containing the violation details and an image of the violation.
+Future Improvements:
+Multiple Violation Types: Extend the system to detect more complex violations (e.g., multiple riders, lane crossing).
+Real-Time Video Feed Processing: Enhance the system to process live video feeds for real-time traffic violation detection.
+Improved OCR Accuracy: Further fine-tune the OCR model to improve accuracy for Arabic license plates.
