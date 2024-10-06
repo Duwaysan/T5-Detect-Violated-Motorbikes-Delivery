@@ -42,7 +42,7 @@ The system detects traffic violations such as *No Helmet* and *Entering Red Lane
 ## Key Features:
 ### 1. License Plate Detection and OCR:
 - **YOLOv8 Model**: The system uses a fine-tuned YOLOv8 model to detect motorbikes, helmets, and lanes in input images. This model is pre-trained to identify motorbikes violating traffic rules, such as driving without a helmet or entering a restricted lane.
-- **GOT-OCR Transformer**: The license plates detected by YOLOv8 are passed to the GOT-OCR2_0 transformer model for character recognition. This model supports both Arabic and English characters commonly found on Saudi Arabian license plates.
+- **GOT-OCR Transformer**: The license plates detected by YOLOv8 are passed to the GOT-OCR2_0 transformer model for character recognition. This model supports English characters commonly found on Saudi Arabian license plates.
    
 ### 2. Data Preprocessing and Image Manipulation:
 - **Image Preprocessing**: Input images are processed using OpenCV and converted to PIL format for text overlaying and image manipulation.
