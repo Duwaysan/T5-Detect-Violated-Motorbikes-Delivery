@@ -7,8 +7,7 @@ The system detects traffic violations such as *No Helmet* and *Entering Red Lane
 
 ## Process Overview:
 
-![Process Flow](https://github.com/user-attachments/assets/8bf97b00-74b9-4a21-b753-81a5c5babf01)
-
+![process_flow](https://github.com/user-attachments/assets/a539e6fb-ef62-4f4f-a75e-3e898daeec1c)
 
 1. **Raw Image**: The process starts with an image of the motorbike captured from a traffic camera.
 2. **YOLOv8 Detection**: YOLOv8 is used to detect the motorbike, the license plate, and whether the rider is wearing a helmet.
