@@ -94,10 +94,13 @@ The system detects traffic violations such as *No Helmet* and *Entering Red Lane
   - `re`
   - `smtplib`
   - `email`
-  - YOLOv8 (pre-trained model)
-  - A database for storing license plate contact information
+  - `torch`
+  - `datasets`
+  - `ultralytics`
+  - `numpy`
+  - `matplotlib`
 
 You can install the necessary packages using pip:
 
 ```bash
-pip install transformers opencv-python Pillow smtplib email
+pip install transformers opencv-python Pillow smtplib email torch datasets yolov5 numpy matplotlib
