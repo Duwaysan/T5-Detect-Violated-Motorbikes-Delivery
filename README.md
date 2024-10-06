@@ -3,7 +3,7 @@
 
 This project implements an end-to-end system for detecting traffic violations and automatically sending email notifications with evidence. Using a combination of YOLOv8 for object detection, an OCR model for license plate recognition, and an email notification system, the project aims to streamline traffic violation reporting.
 ## TEAM
-- Khaled Alduwaysan      [Github](https://github.com/khaled-alduwaysan)  |  [Linkedin](https://www.linkedin.com/in/kduwaysan/)
+- Khaled Alduwaysan      [Github](https://github.com/Duwaysan)  |  [Linkedin](https://www.linkedin.com/in/kduwaysan/)
 - Abdulrahman Alghamdi   [Github](https://github.com/AbdulrhmanBakrgh)  |  [Linkedin](https://linkedin.com/in/abdulrahman-alghamdi)
 - Nasser Alsaqer         [Github](https://github.com/NasserAlsaqer)  |  [Linkedin](https://www.linkedin.com/in/nasser-alsaqer/)
 - Fares Altoukhi         [Github](https://github.com/TheKnight909)  |  [Linkedin](https://www.linkedin.com/in/fares-altoukhi/)
