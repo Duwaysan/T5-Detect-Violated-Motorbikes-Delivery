@@ -60,8 +60,20 @@ The system detects traffic violations such as *No Helmet* and *Entering Red Lane
 - **SMTP**: Python's `smtplib` is used to send email notifications automatically, including dynamically generated email content and image attachments.
 
 ### 6. Database Lookup:
-- **License Plate Database**: The system checks the detected license plate in a pre-existing database to retrieve the contact information of the vehicle owner. This information is used to send the violation email. 
+- **License Plate Database**: The system checks the detected license plate in a pre-existing database to retrieve the contact information of the vehicle owner. This information is used to send the violation email.
+  
+## Training the YOLO Model
 
+### 1. Dataset Preparation:
+The YOLOv8 model is trained on a dataset of motorbikes, helmets, license plates, and lane markers. The dataset consists of labeled images that include:
+- Bounding boxes around motorbikes and helmets.
+- Bounding boxes for license plates (both Arabic and English).
+- Lane markers, specifically the restricted lanes (e.g., red lane).
+
+### 2. Training Process:
+Once the dataset is ready, the YOLOv8 model can be trained as follows:
+```bash
+!yolo task=detect mode=train data=your_dataset.yaml model=yolov8m.pt epochs=100 imgsz=640
 ## Setup and Usage
 
 ### Prerequisites:
