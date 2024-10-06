@@ -1,5 +1,5 @@
-# License Plate Detection and Traffic Violation Reporting System
-
+# LicensePlate Detection and Traffic Violation Reporting System
+![LOGO](https://github.com/user-attachments/assets/a1e397ad-2b6c-4d79-ba72-cc902868c788)
 This project implements an end-to-end system for detecting traffic violations and automatically sending email notifications with evidence. Using a combination of YOLOv8 for object detection, an OCR model for license plate recognition, and an email notification system, the project aims to streamline traffic violation reporting.
 
 ## Project Overview
@@ -7,6 +7,7 @@ The system detects traffic violations such as *No Helmet* and *Entering Red Lane
 
 ## Process Overview:
 
+![Process Flow](https://github.com/user-attachments/assets/8bf97b00-74b9-4a21-b753-81a5c5babf01)
 
 
 1. **Raw Image**: The process starts with an image of the motorbike captured from a traffic camera.
@@ -27,7 +28,8 @@ The system detects traffic violations such as *No Helmet* and *Entering Red Lane
 - **Violation Detection**: Identifies and logs violations like "No Helmet" and "Entering Red Lane."
 - **Email Notification**: Automatically sends a violation report with an attached image of the offense.
 
-<img width="960" alt="Lane_violation" src="https://github.com/user-attachments/assets/40f7a902-414e-4d6a-91a6-030587ed849a">
+![Lane_violation](https://github.com/user-attachments/assets/5da05a03-e676-4ffd-8b8c-6424977d1c74)
+
 
 
 ### Steps to Run the Demo:
