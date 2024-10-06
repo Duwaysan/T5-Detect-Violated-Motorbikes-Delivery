@@ -1,7 +1,8 @@
 # Final Project: License Plate Detection and Traffic Violation Reporting
-
+![LOGO](https://github.com/user-attachments/assets/9d031d62-00fa-4f74-b870-4d62e9d39eeb)
 ## Project Overview
 This notebook implements a complete pipeline for detecting traffic violations, recognizing license plates, and sending automated email notifications for violations. The project leverages techniques in computer vision, optical character recognition (OCR), and automated email notification systems. The system aims to detect license plates from vehicles, identify violations such as "No Helmet" or "Entering Red Lane," and send a violation notification along with image evidence.
+
 
 ## Key Components
 
