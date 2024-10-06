@@ -1,5 +1,6 @@
 # LicensePlate Detection and Traffic Violation Reporting System
 ![LOGO](https://github.com/user-attachments/assets/a1e397ad-2b6c-4d79-ba72-cc902868c788)
+
 This project implements an end-to-end system for detecting traffic violations and automatically sending email notifications with evidence. Using a combination of YOLOv8 for object detection, an OCR model for license plate recognition, and an email notification system, the project aims to streamline traffic violation reporting.
 
 ## Project Overview
