@@ -1,5 +1,4 @@
 # License Plate Detection and Traffic Violation Reporting System
-![LOGO](https://github.com/user-attachments/assets/44181862-49e2-4941-b776-aa9b9f115d4b)
 
 This project implements an end-to-end system for detecting traffic violations and automatically sending email notifications with evidence. Using a combination of YOLOv8 for object detection, an OCR model for license plate recognition, and an email notification system, the project aims to streamline traffic violation reporting.
 
@@ -8,7 +7,7 @@ The system detects traffic violations such as *No Helmet* and *Entering Red Lane
 
 ## Process Overview:
 
-<img width="853" alt="Process Flow" src="https://github.com/user-attachments/assets/95803cba-b9bb-4062-a0e7-84d28518db99">
+
 
 1. **Raw Image**: The process starts with an image of the motorbike captured from a traffic camera.
 2. **YOLOv8 Detection**: YOLOv8 is used to detect the motorbike, the license plate, and whether the rider is wearing a helmet.
@@ -16,6 +15,27 @@ The system detects traffic violations such as *No Helmet* and *Entering Red Lane
 4. **OCR Detection**: The GOT-OCR2_0 model extracts the license plate characters in both Arabic and English.
 5. **Database Integration**: The detected license plate is cross-referenced with a database that stores the violator's contact details, such as email and phone number.
 6. **Email Integration**: A violation report is generated and sent via email to the violator with an image of the violation and license plate details.
+
+## Demo
+
+### Video Demo:
+
+[Watch the full system demo here](https://youtu.be/LgCqOEWqY0A?feature=shared)
+
+- **YOLOv8 Detection**: Detects motorbikes, helmets, and lanes in real time.
+- **OCR in Action**: Recognizes both Arabic and English characters from license plates.
+- **Violation Detection**: Identifies and logs violations like "No Helmet" and "Entering Red Lane."
+- **Email Notification**: Automatically sends a violation report with an attached image of the offense.
+
+<img width="960" alt="Lane_violation" src="https://github.com/user-attachments/assets/40f7a902-414e-4d6a-91a6-030587ed849a">
+
+
+### Steps to Run the Demo:
+
+1. **Upload Images**: Upload images or video frames to the system.
+2. **YOLOv8 Model**: The model detects motorbikes, helmets, and restricted lanes.
+3. **OCR**: The system extracts the license plate number using GOT-OCR2_0 and cross-references the database.
+4. **Violation Report**: A report is generated and sent via email, containing details of the violation, the license plate, and the attached image.
 
 ## Key Features:
 ### 1. License Plate Detection and OCR:
@@ -61,19 +81,7 @@ The system detects traffic violations such as *No Helmet* and *Entering Red Lane
 
 ### 6. Database Lookup:
 - **License Plate Database**: The system checks the detected license plate in a pre-existing database to retrieve the contact information of the vehicle owner. This information is used to send the violation email.
-  
-## Training the YOLO Model
 
-### 1. Dataset Preparation:
-The YOLOv8 model is trained on a dataset of motorbikes, helmets, license plates, and lane markers. The dataset consists of labeled images that include:
-- Bounding boxes around motorbikes and helmets.
-- Bounding boxes for license plates (both Arabic and English).
-- Lane markers, specifically the restricted lanes (e.g., red lane).
-
-### 2. Training Process:
-Once the dataset is ready, the YOLOv8 model can be trained as follows:
-```bash
-!yolo task=detect mode=train data=your_dataset.yaml model=yolov8m.pt epochs=100 imgsz=640
 ## Setup and Usage
 
 ### Prerequisites:
