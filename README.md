@@ -28,6 +28,8 @@ The system detects traffic violations such as *No Helmet* and *Entering Red Lane
 
 [Watch the full system demo here](https://youtu.be/LgCqOEWqY0A?feature=shared)
 
+
+
 - **YOLOv8 Detection**: Detects motorbikes, helmets, and lanes in real time.
 - **OCR in Action**: Recognizes both Arabic and English characters from license plates.
 - **Violation Detection**: Identifies and logs violations like "No Helmet" and "Entering Red Lane."
@@ -43,6 +45,11 @@ The system detects traffic violations such as *No Helmet* and *Entering Red Lane
 2. **YOLOv8 Model**: The model detects motorbikes, helmets, and restricted lanes.
 3. **OCR**: The system extracts the license plate number using GOT-OCR2_0 and cross-references the database.
 4. **Violation Report**: A report is generated and sent via email, containing details of the violation, the license plate, and the attached image.
+
+   
+### Deployment
+
+[Try our model!](https://huggingface.co/spaces/TheKnight115/T5_final_project)
 
 ## Key Features:
 ### 1. License Plate Detection and OCR:
